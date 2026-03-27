@@ -66,4 +66,11 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus!');
     }
+
+    // 8. Landing Page (Homepage)
+    public function landing()
+    {
+        $products = Product::latest()->take(3)->get();
+        return view('landing', compact('products'));
+    }
 }
