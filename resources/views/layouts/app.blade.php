@@ -10,6 +10,34 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Varela+Round" rel="stylesheet">
 
+    <style>
+        @keyframes marquee-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes marquee-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .animate-marquee-left {
+            display: flex;
+            width: max-content;
+            animation: marquee-left 30s linear infinite;
+        }
+
+        .animate-marquee-right {
+            display: flex;
+            width: max-content;
+            animation: marquee-right 30s linear infinite;
+        }
+
+        .animate-marquee-left:hover, .animate-marquee-right:hover {
+            animation-play-state: paused;
+        }
+    </style>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-950 font-sans antialiased text-gray-200">

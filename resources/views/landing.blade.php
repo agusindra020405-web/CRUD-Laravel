@@ -19,6 +19,42 @@
     </div>
 </section>
 
+<section class="bg-gray-950 py-24 overflow-hidden border-t border-gray-900">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+            SYNDICATE <span class="text-emerald-500">COLLECTION</span>
+        </h2>
+        <div class="w-16 h-1 bg-emerald-500 mx-auto mt-4"></div>
+        <p class="text-gray-500 mt-4 text-xs uppercase tracking-[0.3em]">Join to see full details</p>
+    </div>
+
+    <div class="flex overflow-x-hidden mb-8 group">
+        <div class="flex animate-marquee-left whitespace-nowrap gap-6">
+            {{-- Loop pertama --}}
+            @foreach($products as $product)
+                @include('components.marquee-card', ['product' => $product])
+            @endforeach
+            {{-- Loop kedua (untuk menyambung tanpa putus) --}}
+            @foreach($products as $product)
+                @include('components.marquee-card', ['product' => $product])
+            @endforeach
+        </div>
+    </div>
+
+    <div class="flex overflow-x-hidden group">
+        <div class="flex animate-marquee-right whitespace-nowrap gap-6">
+            {{-- Loop pertama --}}
+            @foreach($products as $product)
+                @include('components.marquee-card', ['product' => $product])
+            @endforeach
+            {{-- Loop kedua --}}
+            @foreach($products as $product)
+                @include('components.marquee-card', ['product' => $product])
+            @endforeach
+        </div>
+    </div>
+</section>
+
 <!-- OUR STORY -->
 <section id="our-story" class="scroll-mt-24 bg-gray-950 py-24 px-6 md:px-16 border-t border-gray-800">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">

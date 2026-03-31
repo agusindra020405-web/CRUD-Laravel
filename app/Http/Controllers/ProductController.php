@@ -70,7 +70,8 @@ class ProductController extends Controller
     // 8. Landing Page (Homepage)
     public function landing()
     {
-        $products = Product::latest()->take(3)->get();
+        // Mengambil produk untuk ditampilkan di marquee
+        $products = Product::all(); 
         return view('landing', compact('products'));
     }
 
@@ -80,5 +81,10 @@ class ProductController extends Controller
         $products = Product::all();
 
         return view('shop', compact('products'));
+    }
+
+    public function shopDetail(Product $product)
+    {
+         return view('shop-detail', compact('product'));
     }
 }

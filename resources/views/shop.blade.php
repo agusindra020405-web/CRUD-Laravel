@@ -16,6 +16,7 @@
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
 
         @forelse($products as $product)
+        <a href="{{ route('shop.detail', $product->id) }}" class="group">
         <!-- CARD -->
         <div class="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden group hover:-translate-y-2 hover:shadow-2xl transition duration-300">
 
@@ -64,6 +65,7 @@
             </div>
 
         </div>
+        </a>
         @empty
 
         <!-- Dummy cards kalau belum ada data -->
