@@ -4,7 +4,7 @@
     <div class="bg-gray-950 min-h-screen text-white pt-24 pb-12">
         <div class="max-w-6xl mx-auto px-6">
 
-            <a href="{{ route('shop.index') }}"
+            <a href="{{ route('shop') }}"
                 class="inline-flex items-center gap-2 text-gray-500 hover:text-emerald-500 transition mb-10 uppercase tracking-widest text-xs font-bold">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />

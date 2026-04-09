@@ -81,13 +81,32 @@
                     </button>
 
                     <button class="relative hover:text-emerald-400 transition text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.115 10.033a2.25 2.25 0 0 1-2.243 2.493H5.282a2.25 2.25 0 0 1-2.243-2.493L4.154 8.507a2.25 2.25 0 0 1 2.243-2.493h11.214a2.25 2.25 0 0 1 2.243 2.493Z" />
-                        </svg>
-                        <span
-                            class="absolute -top-2 -right-2 bg-emerald-500 text-[9px] text-black font-bold px-1.5 py-0.5 rounded-full">0</span>
+                        <a href="{{ route('cart.index') }}" class="relative group p-2 flex items-center group">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor"
+                                class="w-5 h-5 text-white group-hover:text-emerald-400 group-hover:scale-110 transition-all duration-300">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                            </svg>
+
+                            @auth
+                                @php
+                                    $cartCount = \App\Models\Cart::where('user_id', auth()->id())->count();
+                                @endphp
+
+                                @if ($cartCount > 0)
+                                    <span
+                                        class="absolute -top-1 -right-1 bg-emerald-500 text-gray-950 text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full border border-gray-950 shadow-lg group-hover:scale-110 transition-transform">
+                                        {{ $cartCount }}
+                                    </span>
+                                @endif
+                            @else
+                                <span
+                                    class="absolute -top-1 -right-1 bg-gray-600 text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-gray-950">
+                                    0
+                                </span>
+                            @endauth
+                        </a>
                     </button>
 
                     <div
